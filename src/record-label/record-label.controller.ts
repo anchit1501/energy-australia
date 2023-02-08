@@ -14,8 +14,9 @@ export class RecordLabelController {
     @Header('content-type', 'text/html')
     async getRecordLabel(@Res() res) {
         let response: Response = await this.recordlabelService.getRecordLabels();
-        let responseString = '<div>' + Template(response.data) + '</div>'
+        
         if (response.code === 200) {
+            let responseString = '<div>' + Template(response.data) + '</div>'
             return res.status(HttpStatus.OK).json(responseString.replace(/['"]+/g, ''));
         }
         else if (response.code === 404) {
@@ -26,7 +27,7 @@ export class RecordLabelController {
         }
         else {
             if (response)
-                return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(response.data)
+                return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json('Error due to API throttling')
         }
     }
 }

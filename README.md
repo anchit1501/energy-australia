@@ -34,4 +34,4 @@ $ npm run start:prod
 After running the app go to http://localhost:3000/record-label/ to acess the result
 
 ## Shortcoming
-One use case throws error for  data[key][sub_key].map. Looking into teh error will exceed the alotted time limit.
+One use case throws error for  data[key][sub_key].map. Looking into the error may exceed the alotted time limit. [Solved]
